@@ -40,7 +40,7 @@ const Forecast = () => {
           {weatherData.list.map((item, index) => (
             <ForecastTile
               key={index}
-              time={item.dt_txt}
+              time={item.dt}
               weather={item.weather[0].description}
               temp={item.main.temp}
               icon={item.weather[0].icon}
