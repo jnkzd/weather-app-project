@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import useGetWeatherData from "./hooks";
 import ForecastTile from "./ForecastTile";
 
