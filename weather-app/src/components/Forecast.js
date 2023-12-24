@@ -32,7 +32,7 @@ const Forecast = () => {
       ></input>
       <p></p>
       <button onClick={setCoords}>Set coords</button>
-      {weatherData ? (
+      {weatherData && weatherData.cod === "200" ? (
         <>
           <h2>
             {weatherData.city.name}, {weatherData.city.country}
@@ -43,6 +43,7 @@ const Forecast = () => {
               time={item.dt_txt}
               weather={item.weather[0].description}
               temp={item.main.temp}
+              icon={item.weather[0].icon}
             />
           ))}
         </>
