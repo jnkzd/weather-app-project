@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useGetWeatherData = () => {
+export const useGetWeatherData = () => {
   const [weatherData, setWeatherData] = useState();
 
   const fetchData = async (coords) => {
@@ -15,4 +15,15 @@ const useGetWeatherData = () => {
     return { weatherData, fetchData };
 };
 
-export default useGetWeatherData
+export const useGetSuggestionData = () => {
+  const [suggestions, setSuggestions] = useState();
+
+  const getSuggestions = async () => {
+    const fetchSourceFile = await fetch('/assets/city.list.json')
+    const sourceData = await fetchSourceFile.json();
+    setSuggestions(sourceData);
+  };
+
+  return { suggestions, getSuggestions}
+}
+

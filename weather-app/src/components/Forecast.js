@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useGetWeatherData from "./hooks";
+import { useGetWeatherData } from "./hooks";
 import ForecastTile from "./ForecastTile";
 
 const Forecast = () => {
@@ -37,14 +37,15 @@ const Forecast = () => {
           <h2>
             {weatherData.city.name}, {weatherData.city.country}
           </h2>
-          {weatherData.list.map((item, index) => (
-            <ForecastTile
+          {weatherData.list.map((item, index) => (<>
+             <ForecastTile
               key={index}
               time={item.dt}
               weather={item.weather[0].description}
               temp={item.main.temp}
               icon={item.weather[0].icon}
             />
+            </>
           ))}
         </>
       ) : (
