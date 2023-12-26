@@ -17,7 +17,7 @@ export const useGetWeatherData = () => {
 
 export const useGetSuggestionData = () => {
   const [suggestions, setSuggestions] = useState();
-
+  
   const getSuggestions = async () => {
     const fetchSourceFile = await fetch('/assets/city.list.json')
     const sourceData = await fetchSourceFile.json();
