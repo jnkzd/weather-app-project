@@ -14,20 +14,26 @@ useEffect(() => {
 
 useEffect(() => {
     if (suggestions && userInput.length > 0) {
-        setShortList(suggestions.filter(item => item.name.startsWith(userInput)) 
+        setShortList(suggestions.filter(item => item.name.toUpperCase().startsWith(userInput.toUpperCase())) 
         )
+    } else {
+        setShortList([]);
     }
 }, [userInput])
+
+console.log(shortList.length)
 
     return (
         <>
         {suggestions ? <>
         <input type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)}/> 
         <input type="submit" value="Set" />
-        {shortList.length > 0 ? 
+       
+        {shortList.length > 0 ?
         shortList.slice(0,10).map((city, index) => 
-        <p key={index}>{city.name}{city.state.length > 0 ? ' ' + city.state + ', ' : ' '}{city.country}</p>) : <></>}
+        <div className="suggestion" key={index}>{city.name}{city.state.length > 0 ? ' ' + city.state + ', ' : ' '}{city.country}</div>) : <></>}
         </> : <p>Loading</p>}
+        
         </>
         )
 }
