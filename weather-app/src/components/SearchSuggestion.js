@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGetSuggestionData } from "./hooks";
+import './SearchSuggestion.css'
 
 const SearchSuggestion = () => {
 
@@ -28,12 +29,13 @@ console.log(shortList.length)
         {suggestions ? <>
         <input type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)}/> 
         <input type="submit" value="Set" />
-       
+        <div className="suggestions-container">
         {shortList.length > 0 ?
-        shortList.slice(0,10).map((city, index) => 
-        <div className="suggestion" key={index}>{city.name}{city.state.length > 0 ? ' ' + city.state + ', ' : ' '}{city.country}</div>) : <></>}
+        shortList.slice(0,35).map((city, index) => 
+        <div className="suggestion" key={index} onClick={(e) => console.log(city.coord.lat + ' ' + city.coord.lon)}>{city.name}{city.state.length > 0 ? ' ' + city.state + ', ' : ' '}{city.country}</div>) : <></>}
+        </div>
         </> : <p>Loading</p>}
-        
+    
         </>
         )
 }
