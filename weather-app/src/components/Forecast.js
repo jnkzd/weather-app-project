@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetWeatherData } from "./hooks";
 import ForecastTile from "./ForecastTile";
+import SearchSuggestion from "./SearchSuggestion";
 
-const Forecast = () => {
+const Forecast = ({ selectedCityCoords }) => {
   const { weatherData, fetchData } = useGetWeatherData();
   const [lat, setLat] = useState("");
   const [long, setLong] = useState("");
 
+  useEffect(() => {
+    if (selectedCityCoords) {
+      setLat(selectedCityCoords[0]);
+      setLong(selectedCityCoords[1]);
+    }
+  }, [selectedCityCoords])
+
+  useEffect(() => {
+    if (lat && long) {
+      fetchData([lat, long])
+    }
+  }, [lat, long])
+
   const setCoords = () => {
-    console.log(lat + " " + long);
+  //  console.log(selectedCityCoords[0]);
     fetchData([lat, long]);
   };
 

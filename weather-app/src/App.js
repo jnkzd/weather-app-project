@@ -1,11 +1,17 @@
+import { useState } from "react"
 import Forecast from "./components/Forecast"
 import SearchSuggestion from "./components/SearchSuggestion"
 
 const App = () => {
+  const [selectedCityCoords, setSelectedCityCoords] = useState();
+  const getCityCoords = (city) => {
+    setSelectedCityCoords(city)
+  }
+
   return (<>
   <h1>Hello from App</h1>
-  <SearchSuggestion />
-  <Forecast />
+  <SearchSuggestion getCityCoords={getCityCoords}/>
+  <Forecast selectedCityCoords={selectedCityCoords}/>
   </>)
 }
 

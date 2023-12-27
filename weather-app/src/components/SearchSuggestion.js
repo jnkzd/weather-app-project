@@ -1,43 +1,67 @@
 import { useEffect, useState } from "react";
 import { useGetSuggestionData } from "./hooks";
-import './SearchSuggestion.css'
+import "./SearchSuggestion.css";
 
-const SearchSuggestion = () => {
+const SearchSuggestion = ({ getCityCoords }) => {
+  const { getSuggestions, suggestions } = useGetSuggestionData();
+  const [userInput, setUserInput] = useState("");
+  const [shortList, setShortList] = useState([]);
 
-const {getSuggestions, suggestions} = useGetSuggestionData();
-const [userInput, setUserInput] = useState('');
-const [shortList, setShortList] = useState([]);
-
-useEffect(() => {
+  useEffect(() => {
     getSuggestions();
     console.log("UseEffect triggered");
-}, [])
+  }, []);
 
-useEffect(() => {
+  useEffect(() => {
     if (suggestions && userInput.length > 0) {
-        setShortList(suggestions.filter(item => item.name.toUpperCase().startsWith(userInput.toUpperCase())) 
+      setShortList(
+        suggestions.filter((item) =>
+          item.name.toUpperCase().startsWith(userInput.toUpperCase())
         )
+      );
     } else {
-        setShortList([]);
+      setShortList([]);
     }
-}, [userInput])
+  }, [userInput]);
 
-console.log(shortList.length)
+  console.log(shortList.length);
 
-    return (
+  return (
+    <>
+      {suggestions ? (
         <>
-        {suggestions ? <>
-        <input type="text" value={userInput} onChange={(e) => setUserInput(e.target.value)}/> 
-        <input type="submit" value="Set" />
-        <div className="suggestions-container">
-        {shortList.length > 0 ?
-        shortList.slice(0,35).map((city, index) => 
-        <div className="suggestion" key={index} onClick={(e) => console.log(city.coord.lat + ' ' + city.coord.lon)}>{city.name}{city.state.length > 0 ? ' ' + city.state + ', ' : ' '}{city.country}</div>) : <></>}
-        </div>
-        </> : <p>Loading</p>}
-    
+          <input
+            type="text"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+          />
+          <input type="submit" value="Set" />
+          <div className="suggestions-container">
+            {shortList.length > 0 ? (
+              shortList.slice(0, 35).map((city, index) => (
+                <div
+                  className="suggestion"
+                  key={index}
+                  onClick={(e) => {
+                    getCityCoords([city.coord.lat, city.coord.lon]);
+                    setUserInput(city.name);
+                  }}
+                >
+                  {city.name}
+                  {city.state.length > 0 ? " " + city.state + ", " : " "}
+                  ({city.country})
+                </div>
+              ))
+            ) : (
+              <></>
+            )}
+          </div>
         </>
-        )
-}
+      ) : (
+        <p>Loading</p>
+      )}
+    </>
+  );
+};
 
-export default SearchSuggestion
+export default SearchSuggestion;
