@@ -7,6 +7,24 @@ const SearchSuggestion = ({ getCityCoords }) => {
   const [userInput, setUserInput] = useState("");
   const [shortList, setShortList] = useState([]);
 
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+      } else {
+        console.log("Geolocation not supported");
+      }
+      
+      function success(position) {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        getCityCoords([latitude, longitude]);
+      }
+      
+      function error() {
+        console.log("Unable to retrieve your location")
+  }
+}
+
   useEffect(() => {
     getSuggestions();
     console.log("UseEffect triggered");
@@ -28,6 +46,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
 
   return (
     <>
+    <p className="my-location" onClick={getUserLocation}>Use my location</p>
       {suggestions ? (
         <>
           <input
@@ -48,7 +67,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
                   }}
                 >
                   {city.name}
-                  {city.state.length > 0 ? " " + city.state + ", " : " "}
+                  {city.state.length > 0 ? " " + city.state + " " : " "}
                   ({city.country})
                 </div>
               ))
@@ -64,4 +83,4 @@ const SearchSuggestion = ({ getCityCoords }) => {
   );
 };
 
-export default SearchSuggestion;
+export default SearchSuggestion

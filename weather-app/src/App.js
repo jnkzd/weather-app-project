@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Forecast from "./components/Forecast"
 import SearchSuggestion from "./components/SearchSuggestion"
+import './app.css'
 
 const App = () => {
   const [selectedCityCoords, setSelectedCityCoords] = useState();
