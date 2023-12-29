@@ -1,0 +1,5 @@
+.dailyTile {
+    border: 1px solid salmon;
+    max-width: 800px;
+    display: flex
+}

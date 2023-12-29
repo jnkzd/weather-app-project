@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import { useGetWeatherData } from "./hooks";
 import ForecastTile from "./ForecastTile";
 import "./forecast.css";
+import DailyForecast from "./DailyForecast";
 
 const Forecast = ({ selectedCityCoords }) => {
   const { weatherData, fetchData } = useGetWeatherData();
   const [lat, setLat] = useState("");
   const [long, setLong] = useState("");
   const [dailyForecast, setDailyForecast] = useState([]);
+
+  const formatDate = (unix) => {
+    return new Date(unix * 1000).toLocaleDateString() 
+  }
 
   useEffect(() => {
     if (selectedCityCoords) {
@@ -32,13 +37,13 @@ const Forecast = ({ selectedCityCoords }) => {
     let singleDay = [];
   
     if (weatherData && weatherData.cod === '200') {
-      let day = weatherData.list[0].dt_txt.slice(0,10);
+      let day = formatDate(weatherData.list[0].dt);
       weatherData.list.forEach(element => {
-        if (element.dt_txt.slice(0,10) === day) {
+        if (formatDate(element.dt) === day) {
           singleDay.push(element);
         } else {
           allDays.push(singleDay);
-          day = element.dt_txt.slice(0,10);
+          day = formatDate(element.dt);
           singleDay = [element];
         }
       });
@@ -47,7 +52,8 @@ const Forecast = ({ selectedCityCoords }) => {
       if (allDays.length > 0) {
         setDailyForecast(allDays);
       }
-      console.log(allDays);
+      console.log(dailyForecast);
+      console.log(formatDate(allDays[5][0].dt));
     }
   }, [weatherData]);
 
@@ -67,6 +73,11 @@ const Forecast = ({ selectedCityCoords }) => {
               icon={item.weather[0].icon}
             />
           ))}
+       {weatherData && dailyForecast ? 
+    (dailyForecast.map((day, index) => (
+        <DailyForecast key={index} dailyWeatherData={day} />
+    ))
+) : <p>loading</p>}
         </div>
       ) : (
         <p></p>
