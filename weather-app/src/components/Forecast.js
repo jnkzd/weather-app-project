@@ -64,15 +64,6 @@ const Forecast = ({ selectedCityCoords }) => {
           <h2>
             {weatherData.city.name}, {weatherData.city.country}
           </h2>
-          {weatherData.list.map((item, index) => (
-            <ForecastTile
-              key={index}
-              time={item.dt}
-              weather={item.weather[0].description}
-              temp={item.main.temp}
-              icon={item.weather[0].icon}
-            />
-          ))}
        {weatherData && dailyForecast ? 
     (dailyForecast.map((day, index) => (
         <DailyForecast key={index} dailyWeatherData={day} />

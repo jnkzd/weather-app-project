@@ -2,11 +2,14 @@ import ForecastTile from "./ForecastTile"
 import './dailyForecast.css'
 
 const DailyForecast = ( {dailyWeatherData} ) => {
-    console.log(dailyWeatherData);
+    const formatDate = (unix) => {
+        return new Date(unix * 1000).toLocaleDateString([], {day:'numeric', month: 'numeric', year: 'numeric', weekday: 'long'}) 
+      }
 
     return(
+        <div className="day-container">
+        <h3>{formatDate(dailyWeatherData[0].dt)}</h3>
         <div className="dailyTile">
-        <h3>{dailyWeatherData[0].dt_txt.slice(0, 10)}</h3>
         {dailyWeatherData &&
             dailyWeatherData.map((item, index) => (
                 <ForecastTile
@@ -18,8 +21,7 @@ const DailyForecast = ( {dailyWeatherData} ) => {
                 />
               )  
         ) 
-    }</div>
-
+    }</div></div>
 )}
 
 export default DailyForecast
