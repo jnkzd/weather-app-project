@@ -56,6 +56,7 @@ const Forecast = ({ selectedCityCoords }) => {
 
   return (
     <>
+    {weatherData && weatherData.cod !=="200" && alert(weatherData.message)}
       {weatherData && weatherData.cod === "200" ? (
         <div className="container">
           <h2>
@@ -71,6 +72,7 @@ const Forecast = ({ selectedCityCoords }) => {
         <p></p>
       )}
     </>
+
   );
 };
 

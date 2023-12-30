@@ -12,7 +12,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
       } else {
-        console.log("Geolocation not supported");
+        alert("Geolocation not supported");
       }
       
       function success(position) {
@@ -22,7 +22,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
       }
       
       function error() {
-        console.log("Unable to retrieve your location")
+        alert('Failed to detect location')
   }
 }
 
@@ -83,7 +83,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
           </div>
         </>
       ) : (
-        <p>Loading</p>
+        <div className="icon-container"><img className="icon-loading" src="/assets/icons/loading.svg" alt="loading"></img></div>
       )}
     </>
   );

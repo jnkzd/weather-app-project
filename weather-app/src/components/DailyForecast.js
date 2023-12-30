@@ -8,7 +8,7 @@ const DailyForecast = ( {dailyWeatherData} ) => {
 
     return(
         <div className="day-container">
-        <h3>{formatDate(dailyWeatherData[0].dt)}</h3>
+        <h2 className="date">{formatDate(dailyWeatherData[0].dt)}</h2>
         <div className="dailyTile">
         {dailyWeatherData &&
             dailyWeatherData.map((item, index) => (

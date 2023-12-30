@@ -15,3 +15,22 @@
     text-decoration-line: underline;
     cursor: pointer;
 }
+
+.icon-loading {
+    width: 32px;
+    animation: loading-rotation 3s linear infinite;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes loading-rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
