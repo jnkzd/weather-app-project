@@ -6,10 +6,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10px;
+    height: 150px;
 }
 
 .icon {
     width: 24px;
     height: 24px;
+}
+
+.weather-graphics {
+    width: 80px;
 }
 

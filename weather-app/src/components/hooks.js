@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const useGetWeatherData = () => {
   const [weatherData, setWeatherData] = useState();
@@ -26,4 +26,3 @@ export const useGetSuggestionData = () => {
 
   return { suggestions, getSuggestions}
 }
-

@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useGetWeatherData } from "./hooks";
-import ForecastTile from "./ForecastTile";
 import "./forecast.css";
 import DailyForecast from "./DailyForecast";
 
@@ -52,8 +51,6 @@ const Forecast = ({ selectedCityCoords }) => {
       if (allDays.length > 0) {
         setDailyForecast(allDays);
       }
-      console.log(dailyForecast);
-      console.log(formatDate(allDays[5][0].dt));
     }
   }, [weatherData]);
 

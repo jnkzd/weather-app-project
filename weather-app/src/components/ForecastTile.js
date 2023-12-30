@@ -9,10 +9,10 @@ const ForecastTile = ({time, weather, temp, icon}) => {
 
   return (
     <div className="forecastTile">
-      <p><img className="icon" src="/assets/icons/clock.svg"/>{formatTime(time)}</p>
-      <img src={imageUrl}></img>
-      <p>{weather}</p>
-      <p><img className="icon" src="/assets/icons/temp.svg"/>{temp}</p>
+      <div><img className="icon" src="/assets/icons/clock.svg"/>{formatTime(time)}</div>
+      <img className="weather-graphics" src={imageUrl}></img>
+      <div>{weather}</div>
+      <div><img className="icon" src="/assets/icons/temp.svg"/>{temp}</div>
     </div>
   );
 };

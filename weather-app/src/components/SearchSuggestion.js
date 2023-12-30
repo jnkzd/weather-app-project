@@ -6,6 +6,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
   const { getSuggestions, suggestions } = useGetSuggestionData();
   const [userInput, setUserInput] = useState("");
   const [shortList, setShortList] = useState([]);
+  const [latestCoords, setLatestCoords] = useState([]);
 
   const getUserLocation = () => {
     if (navigator.geolocation) {
@@ -27,14 +28,13 @@ const SearchSuggestion = ({ getCityCoords }) => {
 
   useEffect(() => {
     getSuggestions();
-    console.log("UseEffect triggered");
   }, []);
 
   useEffect(() => {
     if (suggestions && userInput.length > 0) {
       setShortList(
-        suggestions.filter((item) =>
-          item.name.toUpperCase().startsWith(userInput.toUpperCase())
+        suggestions.filter((city) =>
+          city.name.toUpperCase().startsWith(userInput.toUpperCase())
         )
       );
     } else {
@@ -42,7 +42,12 @@ const SearchSuggestion = ({ getCityCoords }) => {
     }
   }, [userInput]);
 
-  console.log(shortList.length);
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (latestCoords) {
+      getCityCoords(latestCoords);
+    }
+  }
 
   return (
     <>
@@ -54,7 +59,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
           />
-          <input type="submit" value="Set" />
+          <input type="submit" value="Set" onClick={handleClick} />
           <div className="suggestions-container">
             {shortList.length > 0 ? (
               shortList.slice(0, 35).map((city, index) => (
@@ -64,6 +69,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
                   onClick={(e) => {
                     getCityCoords([city.coord.lat, city.coord.lon]);
                     setUserInput(city.name);
+                    setLatestCoords([city.coord.lat, city.coord.lon]);
                   }}
                 >
                   {city.name}

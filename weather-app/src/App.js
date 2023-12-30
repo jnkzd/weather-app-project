@@ -2,6 +2,7 @@ import { useState } from "react"
 import Forecast from "./components/Forecast"
 import SearchSuggestion from "./components/SearchSuggestion"
 import './app.css'
+import UnitsToggle from "./components/UnitsToggle"
 
 const App = () => {
   const [selectedCityCoords, setSelectedCityCoords] = useState();
@@ -11,6 +12,7 @@ const App = () => {
 
   return (<>
   <h1>Hello from App</h1>
+  <UnitsToggle />
   <SearchSuggestion getCityCoords={getCityCoords}/>
   <Forecast selectedCityCoords={selectedCityCoords}/>
   </>)
