@@ -25,6 +25,7 @@ const CustomCoords = ({ getCityCoords }) => {
     {isShown && <div className="custom-coords-box">
       <p>Latitude</p>
       <input
+       className="custom-coord-input"
         type="number"
         name="lat"
         placeholder="49.59552"
@@ -34,6 +35,7 @@ const CustomCoords = ({ getCityCoords }) => {
       ></input>
       <p>Longitude</p>
       <input
+       className="custom-coord-input"
       value={long}
         type="number"
         name="long"

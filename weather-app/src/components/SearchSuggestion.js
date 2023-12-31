@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useGetSuggestionData } from "./hooks";
 import "./SearchSuggestion.css";
+import CustomCoords from "./CustomCoords";
 
 const SearchSuggestion = ({ getCityCoords }) => {
   const { getSuggestions, suggestions } = useGetSuggestionData();
@@ -52,6 +53,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
   return (
     <>
     <p className="my-location" onClick={getUserLocation}>Use my location</p>
+    <CustomCoords getCityCoords={getCityCoords}/>
       {suggestions ? (
         <>
           <input

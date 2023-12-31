@@ -14,7 +14,6 @@ const App = () => {
   return (<>
   <h1>Weather Forecast App</h1>
   <UnitsToggle />
-  <CustomCoords getCityCoords={getCityCoords}/>
   <SearchSuggestion getCityCoords={getCityCoords}/>
   <Forecast selectedCityCoords={selectedCityCoords}/>
   </>)

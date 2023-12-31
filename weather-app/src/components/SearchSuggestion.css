@@ -4,9 +4,13 @@
     width: 250px;
 }
 
+.suggestion {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
 .suggestion:hover {
-    background-color: rgb(36, 36, 133);
-    color: white;
+    background-color: white;
+    color: black;
     cursor: pointer;
 }
 
