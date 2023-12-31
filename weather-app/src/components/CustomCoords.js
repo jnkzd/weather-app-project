@@ -30,7 +30,7 @@ const CustomCoords = ({ getCityCoords }) => {
             className="custom-coord-input"
             type="number"
             name="lat"
-            placeholder="49.59552"
+            placeholder="49.595"
             value={lat}
             required
             onChange={(e) => setLat(e.target.value)}
@@ -43,7 +43,7 @@ const CustomCoords = ({ getCityCoords }) => {
             name="long"
             required
             onChange={(e) => setLong(e.target.value)}
-            placeholder="17.25175"
+            placeholder="17.251"
           ></input>
           <p></p>
           <button onClick={handleSearch}>Search</button>

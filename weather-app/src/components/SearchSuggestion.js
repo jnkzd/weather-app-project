@@ -10,22 +10,18 @@ const SearchSuggestion = ({ getCityCoords }) => {
   const [latestCoords, setLatestCoords] = useState([]);
 
   const getUserLocation = () => {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, error);
-      } else {
-        alert("Geolocation not supported");
-      }
-      
-      function success(position) {
+      const success = (position) => {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         getCityCoords([latitude, longitude]);
       }
       
-      function error() {
+      const error = () => {
         alert('Failed to detect location')
   }
-}
+  navigator.geolocation ? 
+  navigator.geolocation.getCurrentPosition(success, error) : alert("Geolocation not supported");
+  }
 
   useEffect(() => {
     getSuggestions();
@@ -43,7 +39,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
     }
   }, [userInput]);
 
-  const handleClick = (e) => {
+  const handleSearchButton = (e) => {
     e.preventDefault();
     if (latestCoords) {
       getCityCoords(latestCoords);
@@ -61,7 +57,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
           />
-          <input type="submit" value="Set" onClick={handleClick} />
+          <input type="submit" value="Set" onClick={handleSearchButton} />
           <div className="suggestions-container">
             {shortList.length > 0 ? (
               shortList.slice(0, 35).map((city, index) => (
