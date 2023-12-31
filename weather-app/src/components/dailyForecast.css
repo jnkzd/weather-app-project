@@ -1,22 +1,23 @@
 .dailyTile {
-    max-width: 840px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  max-width: 840px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .day-container {
-    margin: 10px;
-    background: rgba(158, 243, 232, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(158, 243, 232, 0.3);
+  margin: 10px;
+  margin-bottom: 40px;
+  background: rgba(158, 243, 232, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(158, 243, 232, 0.3);
 }
 
 .date {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

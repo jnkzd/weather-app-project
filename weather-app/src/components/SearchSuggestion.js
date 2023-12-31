@@ -51,7 +51,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
   }
 
   return (
-    <>
+    <div className="search-suggestion-box">
     <p className="my-location" onClick={getUserLocation}>Use my location</p>
     <CustomCoords getCityCoords={getCityCoords}/>
       {suggestions ? (
@@ -87,7 +87,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
       ) : (
         <div className="icon-container"><img className="icon-loading" src="/assets/icons/loading.svg" alt="loading"></img></div>
       )}
-    </>
+    </div>
   );
 };
 

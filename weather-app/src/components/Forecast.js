@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useGetWeatherData } from "./hooks";
 import "./forecast.css";
 import DailyForecast from "./DailyForecast";
+import { useControlUnits } from "./hooks";
 
-const Forecast = ({ selectedCityCoords }) => {
+const Forecast = ({ selectedCityCoords, scaleSymbol, units }) => {
   const { weatherData, fetchData } = useGetWeatherData();
   const [lat, setLat] = useState("");
   const [long, setLong] = useState("");
@@ -22,9 +23,9 @@ const Forecast = ({ selectedCityCoords }) => {
 
   useEffect(() => {
     if (lat && long) {
-      fetchData([lat, long]);
+      fetchData([lat, long], units);
     }
-  }, [lat, long]);
+  }, [lat, long, units]);
 
   const setCoords = () => {
     fetchData([lat, long]);
@@ -64,7 +65,7 @@ const Forecast = ({ selectedCityCoords }) => {
           </h2>
        {weatherData && dailyForecast ? 
     (dailyForecast.map((day, index) => (
-        <DailyForecast key={index} dailyWeatherData={day} />
+        <DailyForecast key={index} dailyWeatherData={day} units={scaleSymbol}/>
     ))
 ) : <p>loading</p>}
         </div>

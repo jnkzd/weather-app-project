@@ -1,6 +1,6 @@
 import "./ForecastTile.css"
 
-const ForecastTile = ({time, weather, temp, icon}) => {
+const ForecastTile = ({time, weather, temp, icon, units}) => {
   const imageUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`
 
   const formatTime = (unix) => {
@@ -12,7 +12,7 @@ const ForecastTile = ({time, weather, temp, icon}) => {
       <div><img className="icon" src="/assets/icons/clock.svg"/>{formatTime(time)}</div>
       <img className="weather-graphics" src={imageUrl}></img>
       <div>{weather}</div>
-      <div><img className="icon" src="/assets/icons/temp.svg"/>{temp}</div>
+      <div><img className="icon" src="/assets/icons/temp.svg"/>{temp} {units}</div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import ForecastTile from "./ForecastTile"
 import './dailyForecast.css'
 
-const DailyForecast = ( {dailyWeatherData} ) => {
+const DailyForecast = ( {dailyWeatherData, units} ) => {
     const formatDate = (unix) => {
         return new Date(unix * 1000).toLocaleDateString([], {day:'numeric', month: 'numeric', year: 'numeric', weekday: 'long'}) 
       }
@@ -18,6 +18,7 @@ const DailyForecast = ( {dailyWeatherData} ) => {
                   weather={item.weather[0].description}
                   temp={item.main.temp}
                   icon={item.weather[0].icon}
+                  units={units}
                 />
               )  
         ) 

@@ -3,16 +3,15 @@ import { useEffect, useState } from "react";
 export const useGetWeatherData = () => {
   const [weatherData, setWeatherData] = useState();
 
-  const fetchData = async (coords) => {
+  const fetchData = async (coords, units) => {
     const res = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${coords[0]}&lon=${coords[1]}&appid=${process.env.REACT_APP_API_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${coords[0]}&lon=${coords[1]}&appid=${process.env.REACT_APP_API_KEY}&units=${units}`
     );
     const data = await res.json();
-    console.log(data);
     setWeatherData(data);
   };
 
-    return { weatherData, fetchData };
+    return { weatherData, fetchData};
 };
 
 export const useGetSuggestionData = () => {
@@ -25,4 +24,26 @@ export const useGetSuggestionData = () => {
   };
 
   return { suggestions, getSuggestions}
+}
+
+export const useControlUnits = () => {
+  const [isCelsiusSelected, setIsCelsiusSelected] = useState(true);
+  const [units, setUnits] = useState();
+  const [scaleSymbol, setScaleSymbol] = useState('');
+
+  useEffect(() => {
+    if (isCelsiusSelected) {
+      setUnits('metric');
+      setScaleSymbol('°C')
+    } else {
+      setUnits('imperial')
+      setScaleSymbol('°F')
+    }
+  }, [isCelsiusSelected])
+
+  const toggleUnits = () => {
+    setIsCelsiusSelected(!isCelsiusSelected);
+    console.log('unit change triggered')
+  }
+  return {toggleUnits, units, scaleSymbol}
 }

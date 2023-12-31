@@ -1,15 +1,13 @@
-import { useState } from "react"
+const UnitsToggle = ({toggleUnits}) => {
 
-const UnitsToggle = () => {
-    const [selected, setSelected] = useState(false);
-    
-    const handleToggle = () => {
-        setSelected(!selected);
-    }
+    const handleClick = () => {
+        toggleUnits();
+    } 
+ 
     return (
         <>
-        <div onClick={handleToggle}>
-            {selected ? 'Celsius' : 'Fahr'}
+        <div onClick={handleClick}>
+            <p>Ahoj button</p>
         </div>
         </>
     )
