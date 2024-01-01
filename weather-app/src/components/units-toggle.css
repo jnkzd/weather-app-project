@@ -1,3 +1,4 @@
+
 .units-text-container {
     display: flex;
     align-items: center;
@@ -25,13 +26,16 @@
     right: 0;
     width: 25px;
     text-align: center;
+    top:25%;
 }
 
 .cels {
+    position: relative;
     width: 25px;
     color: rgb(0, 0, 0);
     z-index: 2;
     text-align: center;
+    top: 25%;
 }
 
 .units-text-container {
@@ -40,6 +44,7 @@
     width: 50%;
     border-radius: 24px;
     left: 50%;
+    transition: all 0.3s;
 }
 
 .units-checkbox:checked + .units-text-container {
@@ -57,5 +62,3 @@
     height: 34px;
     width: fit-content;
 }
-
-
