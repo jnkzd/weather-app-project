@@ -1,4 +1,4 @@
-import "./units-toggle.css";
+import "./styles/units-toggle.css";
 
 const UnitsToggle = ({ toggleUnits, isCelsiusSelected }) => {
   const handleClick = () => {

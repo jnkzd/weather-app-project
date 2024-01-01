@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./custom-coords.css";
+import "./styles/custom-coords.css";
 
 const CustomCoords = ({ getCityCoords }) => {
   const [lat, setLat] = useState("");

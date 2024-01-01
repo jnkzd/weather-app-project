@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGetSuggestionData } from "./hooks";
-import "./search-suggestion.css";
+import "./styles/search-suggestion.css";
 import CustomCoords from "./CustomCoords";
 
 const SearchSuggestion = ({ getCityCoords }) => {

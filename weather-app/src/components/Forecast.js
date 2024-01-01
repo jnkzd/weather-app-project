@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGetWeatherData } from "./hooks";
-import "./forecast.css";
+import "./styles/forecast.css";
 import DailyForecast from "./DailyForecast";
 
 const Forecast = ({ selectedCityCoords, scaleSymbol, units }) => {

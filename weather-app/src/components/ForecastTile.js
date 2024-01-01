@@ -1,4 +1,4 @@
-import "./forecast-tile.css"
+import "./styles/forecast-tile.css"
 
 const ForecastTile = ({time, weather, temp, icon, units}) => {
   const imageUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`
