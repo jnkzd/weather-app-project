@@ -1,7 +1,7 @@
 .forecastTile {
     border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    width: 120px;
+    width: 130px;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -11,11 +11,17 @@
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
+    width: 20px;
 }
 
 .weather-graphics {
     width: 80px;
 }
+
+.time, .temp {
+    display: flex;
+    text-align: center;
+}
+
+
 

@@ -30,11 +30,12 @@ input::-webkit-inner-spin-button {
 }
 
 .custom-coords-box {
+  display: flexbox;
   height: 200px;
-  width: 250px;
+  width: 200px;
   position: relative;
 
-    background: rgba(158, 243, 232, 0.2);
+  background: rgba(158, 243, 232, 0.2);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
@@ -43,22 +44,32 @@ input::-webkit-inner-spin-button {
 }
 
 .custom-coords-roll-button {
-  width: 30px;
-  height: 30px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background: none;
+  border: none;
+}
+
+.custom-coords-roll-button:hover {
+  cursor: pointer;
+}
+
+.custom-coordinates-link {
+  display: flex;
+  height: 24px;
+  width: 200px;
   background: rgba(158, 243, 232, 0.2);
-  border-radius: 50%;
+  border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(158, 243, 232, 0.3);
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }
 
-.custom-coordinates-link {
-  position: relative;
-  width: 250px;
+.custom-coordinates-link:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.408);
 }
 
 .icon-arrow {
@@ -76,7 +87,7 @@ input::-webkit-inner-spin-button {
 }
 
 .custom-coord-set {
-    height: 30px;
+   height: 30px;
     background: rgba(158, 243, 232, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -86,4 +97,9 @@ input::-webkit-inner-spin-button {
     position: absolute;
     right: 0;
     bottom: 0;
+}
+
+.custom-coord-set:hover {
+  background-color: rgba(255, 255, 255, 0.408);
+  cursor: pointer;
 }

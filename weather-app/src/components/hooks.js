@@ -26,7 +26,8 @@ export const useGetSuggestionData = () => {
       const sourceData = await fetchSourceFile.json();
       setSuggestions(sourceData);
     } catch (error) {
-      alert('Error: failed to load source files')
+      console.log(error)
+      alert('Error: failed to read source files')
     }
   };
 

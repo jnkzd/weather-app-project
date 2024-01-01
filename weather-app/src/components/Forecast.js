@@ -26,10 +26,6 @@ const Forecast = ({ selectedCityCoords, scaleSymbol, units }) => {
     }
   }, [lat, long, units]);
 
-  const setCoords = () => {
-    fetchData([lat, long]);
-  };
-
   useEffect(() => {
     console.log("daily data useEffect");
     const allDays = [];

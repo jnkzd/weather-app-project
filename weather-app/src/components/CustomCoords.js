@@ -22,9 +22,9 @@ const CustomCoords = ({ getCityCoords }) => {
 
   return (
     <>
-      <div className="custom-coordinates-link">
-        Custom coordinates
-        <button className="custom-coords-roll-button" onClick={handleShown}>
+      <div className="custom-coordinates-link" onClick={handleShown}>
+        Find city by coords
+        <button className="custom-coords-roll-button">
         <input className="custom-coords-checkbox" type="checkbox" checked={isShown}></input>
           <img className="icon-arrow" src="/assets/icons/arrow.svg"></img>
         </button>

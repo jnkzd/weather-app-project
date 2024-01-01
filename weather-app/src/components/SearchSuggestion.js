@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useGetSuggestionData } from "./hooks";
-import "./SearchSuggestion.css";
+import "./search-suggestion.css";
 import CustomCoords from "./CustomCoords";
 
 const SearchSuggestion = ({ getCityCoords }) => {
@@ -48,13 +48,15 @@ const SearchSuggestion = ({ getCityCoords }) => {
 
   return (
     <div className="search-suggestion-box">
-    <p className="my-location" onClick={getUserLocation}>Use my location <img className="icon-location" src="/assets/icons/location.svg"></img></p>
+    <p className="my-location" onClick={getUserLocation}>Use my location <img className="icon-location" alt="geolocation" src="/assets/icons/location.svg"></img></p>
+    <div className="custom-coords">
     <CustomCoords getCityCoords={getCityCoords}/>
+    </div>
       {suggestions ? (
         <>
         <div className="search-bar">
           <input
-          placeholder="Start typing..."
+          placeholder="Enter city name"
             type="text" className="search-input"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}

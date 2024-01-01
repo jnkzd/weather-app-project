@@ -1,5 +1,5 @@
 import ForecastTile from "./ForecastTile"
-import './dailyForecast.css'
+import './daily-forecast.css'
 
 const DailyForecast = ( {dailyWeatherData, units} ) => {
     const formatDate = (unix) => {
