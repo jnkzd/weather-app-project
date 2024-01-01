@@ -6,7 +6,7 @@ import UnitsToggle from "./components/UnitsToggle"
 import { useControlUnits } from "./components/hooks"
 
 const App = () => {
-  const { toggleUnits, scaleSymbol, units } = useControlUnits();
+  const { toggleUnits, scaleSymbol, units, isCelsiusSelected } = useControlUnits();
   const [selectedCityCoords, setSelectedCityCoords] = useState();
   const getCityCoords = (city) => {
     setSelectedCityCoords(city)
@@ -14,7 +14,7 @@ const App = () => {
 
   return (<>
   <h1>Weather Forecast App</h1>
-  <UnitsToggle toggleUnits={toggleUnits}/>
+  <UnitsToggle toggleUnits={toggleUnits} isCelsiusSelected={isCelsiusSelected}/>
   <SearchSuggestion getCityCoords={getCityCoords}/>
   <Forecast selectedCityCoords={selectedCityCoords} scaleSymbol={scaleSymbol} units={units}/>
   </>)

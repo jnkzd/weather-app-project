@@ -45,5 +45,5 @@ export const useControlUnits = () => {
     setIsCelsiusSelected(!isCelsiusSelected);
     console.log('unit change triggered')
   }
-  return {toggleUnits, units, scaleSymbol}
+  return {toggleUnits, units, scaleSymbol, isCelsiusSelected}
 }

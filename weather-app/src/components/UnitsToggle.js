@@ -1,16 +1,25 @@
-const UnitsToggle = ({toggleUnits}) => {
+import "./units-toggle.css";
 
-    const handleClick = () => {
-        toggleUnits();
-    } 
- 
-    return (
-        <>
-        <div onClick={handleClick}>
-            <p>Ahoj button</p>
-        </div>
-        </>
-    )
-}
+const UnitsToggle = ({ toggleUnits, isCelsiusSelected }) => {
+  const handleClick = () => {
+    toggleUnits();
+  };
 
-export default UnitsToggle
+  return (
+    <div className="main-container" onClick={handleClick}>
+        <div className="cels">°C</div>
+    <div className="units-container">
+      <input
+        type="checkbox"
+        className="units-checkbox"
+        checked={isCelsiusSelected}
+      ></input>
+      <div className="units-text-container">
+    </div>
+    </div>
+    <div className="fahr">°F</div>
+    </div>
+  );
+};
+
+export default UnitsToggle;
