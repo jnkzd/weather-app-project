@@ -9,7 +9,8 @@ const UnitsToggle = ({ toggleUnits, isCelsiusSelected }) => {
     <div className="main-container" onClick={handleClick}>
       <div className="cels">°C</div>
       <div className="units-container">
-        <input readOnly
+        <input
+          readOnly
           type="checkbox"
           className="units-checkbox"
           checked={isCelsiusSelected}

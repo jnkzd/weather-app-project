@@ -10,18 +10,19 @@ const SearchSuggestion = ({ getCityCoords }) => {
   const [latestCoords, setLatestCoords] = useState([]);
 
   const getUserLocation = () => {
-      const success = (position) => {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-        getCityCoords([latitude, longitude]);
-      }
-      
-      const error = () => {
-        alert('Failed to detect location')
-  }
-  navigator.geolocation ? 
-  navigator.geolocation.getCurrentPosition(success, error) : alert("Geolocation not supported");
-  }
+    const success = (position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      getCityCoords([latitude, longitude]);
+    };
+
+    const error = () => {
+      alert("Failed to detect location");
+    };
+    navigator.geolocation
+      ? navigator.geolocation.getCurrentPosition(success, error)
+      : alert("Geolocation not supported");
+  };
 
   useEffect(() => {
     getSuggestions();
@@ -44,24 +45,38 @@ const SearchSuggestion = ({ getCityCoords }) => {
     if (latestCoords) {
       getCityCoords(latestCoords);
     }
-  }
+  };
 
   return (
     <div className="search-suggestion-box">
-    <p className="my-location" onClick={getUserLocation}>Use my location <img className="icon-location" alt="geolocation" src="/assets/icons/location.svg"></img></p>
-    <div className="custom-coords">
-    <CustomCoords getCityCoords={getCityCoords}/>
-    </div>
+      <p className="my-location" onClick={getUserLocation}>
+        Use my location{" "}
+        <img
+          className="icon-location"
+          alt="geolocation"
+          src="/assets/icons/location.svg"
+        ></img>
+      </p>
+      <div className="custom-coords">
+        <CustomCoords getCityCoords={getCityCoords} />
+      </div>
       {suggestions ? (
         <>
-        <div className="search-bar">
-          <input
-          placeholder="Enter city name"
-            type="text" className="search-input"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
-          />
-          <button className="submit-search" type="submit" onClick={handleSearchButton}>set</button>
+          <div className="search-bar">
+            <input
+              placeholder="Enter city name"
+              type="text"
+              className="search-input"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+            />
+            <button
+              className="submit-search"
+              type="submit"
+              onClick={handleSearchButton}
+            >
+              set
+            </button>
           </div>
           <div className="suggestions-container">
             {shortList.length > 0 ? (
@@ -76,8 +91,8 @@ const SearchSuggestion = ({ getCityCoords }) => {
                   }}
                 >
                   {city.name}
-                  {city.state.length > 0 ? " " + city.state + " " : " "}
-                  ({city.country})
+                  {city.state.length > 0 ? " " + city.state + " " : " "}(
+                  {city.country})
                 </div>
               ))
             ) : (
@@ -86,10 +101,16 @@ const SearchSuggestion = ({ getCityCoords }) => {
           </div>
         </>
       ) : (
-        <div className="icon-container"><img className="icon-loading" src="/assets/icons/loading.svg" alt="loading"></img></div>
+        <div className="icon-container">
+          <img
+            className="icon-loading"
+            src="/assets/icons/loading.svg"
+            alt="loading"
+          ></img>
+        </div>
       )}
     </div>
   );
 };
 
-export default SearchSuggestion
+export default SearchSuggestion;

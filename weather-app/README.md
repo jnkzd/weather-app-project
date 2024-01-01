@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# About
+
+This project is a react-based web application providing
+user interface to retrieve and display data from openweathermap.org API.
+
+Users interested in weather forecast for a city are able to select the
+city either from the main search bar which suggests cities based on users' input
+or by typing decimal coordinates manually in the correct side bar fields.
+If supported and allowed, the application is able to display data for user's current
+location using geolocation API.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Installing the application
 
-In the project directory, you can run:
+1. In the project directory run `npm i` to download and install modules.
+2. Run `npm start` in the project directory to start the application.
+   The application starts at `http://localhost:3000` by default.
 
-### `npm start`
+# Important
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The application uses .env file to protect sensitive information such as API keys.
+Unless provided, create your personal .env file in project's root directory.
+The file has to contain the API key in this format
+`REACT_APP_API_KEY = ' ---replace with your API key--- '`.
+This is neccessary for the application to run as intended.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Browser support
 
-### `npm test`
+The application has been manually tested and optimized for Google Chrome build 120.0.6099.130.
+For optimal performance use the latest version of Google Chrome.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Project structure
 
-### `npm run build`
+This React application is structured into components and hooks.
+Given the size of the project, the hooks are stored in a single file. The hooks are imported into
+components which use them mainly to retrieve data. If succsessful the data are then processed
+and displayed by the components or passed as props onto other components.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The application is divided into two major sections. The first one is a section of user input
+allowing users to select location to see weather data for and specify temperature units.
+Components reponsible for this section are SearchSuggestion, ToggleUnits or CustomCoords.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The other section processes and presents the data. DailyForecast component sorts the data
+by date (the data are recieved as an array of 40 objects) respecting user's locale settings
+and maps the data in its children to separate and display weather data for each day.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+All CSS files (with an exception of App css file) are stored in a separate subdirectory.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The non-source-code resources such as icons or resource file for city suggestion are stored in assets directory.

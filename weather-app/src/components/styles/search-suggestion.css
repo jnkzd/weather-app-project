@@ -1,107 +1,106 @@
 .suggestions-container {
-    max-height: 150px;
-    overflow: auto;
-    width: 250px;
-    position: relative;
-    left: 16px;
+  max-height: 150px;
+  overflow: auto;
+  width: 250px;
+  position: relative;
+  left: 16px;
 }
 
 .suggestion {
-    background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .suggestion:hover {
-    background-color: white;
-    color: black;
-    cursor: pointer;
+  background-color: white;
+  color: black;
+  cursor: pointer;
 }
 
 .my-location:hover {
-    color:rgb(36, 36, 133);
-    text-decoration-line: underline;
-    cursor: pointer;
+  color: rgb(36, 36, 133);
+  text-decoration-line: underline;
+  cursor: pointer;
 }
 
 .icon-loading {
-    width: 32px;
-    animation: loading-rotation 3s linear infinite;
+  width: 32px;
+  animation: loading-rotation 3s linear infinite;
 }
 
 .icon-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes loading-rotation {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
   }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .search-bar {
-    display: flex;
-    width: 400px;
-    height: 34px;
+  display: flex;
+  width: 400px;
+  height: 34px;
 }
 
 .search-input {
-    position: relative;
-    background: rgba(158, 243, 232, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(158, 243, 232, 0.3);
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    display: flex;
-    border-right: 0;
-    transition: all 0.3s;
-    width: 80%;
+  position: relative;
+  background: rgba(158, 243, 232, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(158, 243, 232, 0.3);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  display: flex;
+  border-right: 0;
+  transition: all 0.3s;
+  width: 80%;
 }
 
 .search-input:focus {
-    background-color: rgba(255, 255, 255, 0.408);
-    outline: none;
-  }
+  background-color: rgba(255, 255, 255, 0.408);
+  outline: none;
+}
 
-  .search-input:hover {
-    background-color: rgba(255, 255, 255, 0.408);
-  } 
-
+.search-input:hover {
+  background-color: rgba(255, 255, 255, 0.408);
+}
 
 .submit-search {
-    display: flex;
-    background: rgba(158, 243, 232, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(158, 243, 232, 0.3);
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    width: 20%;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  background: rgba(158, 243, 232, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(158, 243, 232, 0.3);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 20%;
+  justify-content: center;
+  align-items: center;
 }
 
 .submit-search:hover {
-    cursor: pointer;
-    background: rgba(158, 243, 232, 0.63);
+  cursor: pointer;
+  background: rgba(158, 243, 232, 0.63);
 }
 
 .icon-location {
-    height: 16px;
+  height: 16px;
 }
 
 .my-location {
-    width: fit-content;
+  width: fit-content;
 }
 
 .custom-coords {
-    position: absolute;
-    right: 0;
-    top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
