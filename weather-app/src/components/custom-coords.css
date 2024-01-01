@@ -13,9 +13,77 @@ input::-webkit-inner-spin-button {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(158, 243, 232, 0.3);
   height: 34px;
+  width: 65px;
+  transition: all 0.3s;
 }
 
 .custom-coord-input:focus {
-  background-color: white;
-  outline: none;
+  background-color: rgba(255, 255, 255, 0.408);
+    outline: none;
+    width: 100px;
+}
+
+.custom-coord-input:hover {
+  background-color: rgba(255, 255, 255, 0.408);
+    outline: none;
+    width: 100px;
+}
+
+.custom-coords-box {
+  height: 200px;
+  width: 250px;
+  position: relative;
+
+    background: rgba(158, 243, 232, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(158, 243, 232, 0.3);
+}
+
+.custom-coords-roll-button {
+  width: 30px;
+  height: 30px;
+  background: rgba(158, 243, 232, 0.2);
+  border-radius: 50%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(158, 243, 232, 0.3);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.custom-coordinates-link {
+  position: relative;
+  width: 250px;
+}
+
+.icon-arrow {
+  width: 14px;
+  transform: rotate(180deg);
+  margin-top: 4px;
+}
+
+.custom-coords-checkbox {
+  display: none;
+}
+
+.custom-coords-checkbox:checked + .icon-arrow {
+  transform: rotate(0deg);
+}
+
+.custom-coord-set {
+    height: 30px;
+    background: rgba(158, 243, 232, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(158, 243, 232, 0.3);
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }

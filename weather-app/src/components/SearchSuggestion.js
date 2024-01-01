@@ -48,16 +48,19 @@ const SearchSuggestion = ({ getCityCoords }) => {
 
   return (
     <div className="search-suggestion-box">
-    <p className="my-location" onClick={getUserLocation}>Use my location</p>
+    <p className="my-location" onClick={getUserLocation}>Use my location <img className="icon-location" src="/assets/icons/location.svg"></img></p>
     <CustomCoords getCityCoords={getCityCoords}/>
       {suggestions ? (
         <>
+        <div className="search-bar">
           <input
-            type="text"
+          placeholder="Start typing..."
+            type="text" className="search-input"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
           />
-          <input type="submit" value="Set" onClick={handleSearchButton} />
+          <input className="submit-search" type="submit" value="Set" onClick={handleSearchButton} />
+          </div>
           <div className="suggestions-container">
             {shortList.length > 0 ? (
               shortList.slice(0, 35).map((city, index) => (
