@@ -61,7 +61,7 @@ const SearchSuggestion = ({ getCityCoords }) => {
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
           />
-          <input className="submit-search" type="submit" value="Set" onClick={handleSearchButton} />
+          <button className="submit-search" type="submit" onClick={handleSearchButton}>set</button>
           </div>
           <div className="suggestions-container">
             {shortList.length > 0 ? (

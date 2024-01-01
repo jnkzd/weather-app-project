@@ -25,7 +25,7 @@ const CustomCoords = ({ getCityCoords }) => {
       <div className="custom-coordinates-link" onClick={handleShown}>
         Find city by coords
         <button className="custom-coords-roll-button">
-        <input className="custom-coords-checkbox" type="checkbox" checked={isShown}></input>
+        <input className="custom-coords-checkbox" type="checkbox" checked={isShown} readOnly></input>
           <img className="icon-arrow" src="/assets/icons/arrow.svg"></img>
         </button>
       </div>

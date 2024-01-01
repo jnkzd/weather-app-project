@@ -26,7 +26,7 @@
     right: 0;
     width: 25px;
     text-align: center;
-    top:25%;
+    top:6px
 }
 
 .cels {
@@ -35,7 +35,7 @@
     color: rgb(0, 0, 0);
     z-index: 2;
     text-align: center;
-    top: 25%;
+    top: 6px;
 }
 
 .units-text-container {
