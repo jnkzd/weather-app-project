@@ -2,7 +2,6 @@
 
 html {
   font-family: 'Open Sans', sans-serif;
-  width: 100%;
   display: flex;
   justify-content: center;
   min-height: 100%;
@@ -19,7 +18,7 @@ html {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 861px;
+  width: 840px;
   height: 200px;
 }
 
