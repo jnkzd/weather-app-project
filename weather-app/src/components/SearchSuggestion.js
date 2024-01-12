@@ -24,6 +24,15 @@ const SearchSuggestion = ({ getCityCoords }) => {
       : alert("Geolocation not supported");
   };
 
+  const getShortlistByInput = (cityList, input) => {
+    if (input.length > 0) {
+      const possibleOptions = cityList.filter((city) =>
+      city.name.toUpperCase().startsWith(input.toUpperCase()))
+      setShortList(possibleOptions) ;
+    } else {
+      setShortList([]);
+    }
+  };
   // Load source json file for suggestions
   useEffect(() => {
     getSuggestions();
@@ -32,15 +41,9 @@ const SearchSuggestion = ({ getCityCoords }) => {
   // Filter cities based on user input
   useEffect(() => {
     const debounceFilter = setTimeout(() => {
-    if (suggestions && userInput.length > 0) {
-      setShortList(
-        suggestions.filter((city) =>
-          city.name.toUpperCase().startsWith(userInput.toUpperCase())
-        )
-      );
-    } else {
-      setShortList([]);
-    }}, 300);
+      getShortlistByInput(suggestions, userInput);
+    }, 300);
+    
     return () => clearTimeout(debounceFilter);
   }, [userInput]);
 
