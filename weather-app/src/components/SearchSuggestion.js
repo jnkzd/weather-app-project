@@ -24,11 +24,14 @@ const SearchSuggestion = ({ getCityCoords }) => {
       : alert("Geolocation not supported");
   };
 
+  // Load source json file for suggestions
   useEffect(() => {
     getSuggestions();
   }, []);
 
+  // Filter cities based on user input
   useEffect(() => {
+    const debounceFilter = setTimeout(() => {
     if (suggestions && userInput.length > 0) {
       setShortList(
         suggestions.filter((city) =>
@@ -37,7 +40,8 @@ const SearchSuggestion = ({ getCityCoords }) => {
       );
     } else {
       setShortList([]);
-    }
+    }}, 300);
+    return () => clearTimeout(debounceFilter);
   }, [userInput]);
 
   const handleSearchButton = (e) => {

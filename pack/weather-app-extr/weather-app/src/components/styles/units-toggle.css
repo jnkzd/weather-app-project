@@ -1,0 +1,64 @@
+.units-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.units-checkbox {
+  display: none;
+}
+
+.units-container {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.201);
+  width: 40px;
+  position: relative;
+  height: 60%;
+  top: 20%;
+  border-radius: 20px;
+}
+
+.fahr {
+  position: relative;
+  color: rgb(0, 0, 0);
+  z-index: 2;
+  right: 0;
+  width: 25px;
+  text-align: center;
+  top: 6px;
+}
+
+.cels {
+  position: relative;
+  width: 25px;
+  color: rgb(0, 0, 0);
+  z-index: 2;
+  text-align: center;
+  top: 6px;
+}
+
+.units-text-container {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.685);
+  width: 50%;
+  border-radius: 24px;
+  left: 50%;
+  transition: all 0.3s;
+}
+
+.units-checkbox:checked + .units-text-container {
+  left: 0%;
+}
+
+.main-container {
+  display: flex;
+  background: rgba(158, 243, 232, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(158, 243, 232, 0.3);
+  height: 34px;
+  width: fit-content;
+  cursor: pointer;
+}
