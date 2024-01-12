@@ -33,12 +33,12 @@ const SearchSuggestion = ({ getCityCoords }) => {
       setShortList([]);
     }
   };
-  // Load source json file for suggestions
+  //Load source json file for suggestions
   useEffect(() => {
     getSuggestions();
   }, []);
 
-  // Filter cities based on user input
+  //Filter cities based on user input
   useEffect(() => {
     const debounceFilter = setTimeout(() => {
       getShortlistByInput(suggestions, userInput);
